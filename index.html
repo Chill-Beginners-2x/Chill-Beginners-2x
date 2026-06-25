@@ -221,7 +221,7 @@
         </main>
     </div>
 
-    <!-- Ultra-reliable, Zero-Dependency Script with Auto-Sync Fixed -->
+    <!-- Ultra-reliable, Zero-Dependency Script with Freeze-Protection and Safe Drops Fix -->
     <script>
         const serverIp = "107.155.95.122:30041";
 
@@ -262,23 +262,28 @@
         setInterval(updateWipeCountdown, 1000);
         updateWipeCountdown();
 
-        // Safe Battlemetrics Data Fetch API (With Anti-Cache & Auto-Refresh Fixed)
+        // Safe Battlemetrics Data Fetch API (With Anti-Cache & Safe Freeze Protection)
         async function fetchServerStats() {
             try {
-                // Adding a unique timestamp query parameter forces the browser to get fresh data bypassing cache
+                // Unique timestamp prevents browser caching bug
                 const res = await fetch('https://api.battlemetrics.com/servers/39073659?t=' + new Date().getTime());
                 if (res.ok) {
                     const json = await res.json();
                     const attr = json.data?.attributes || {};
-                    const online = attr.players ?? 0;
+                    
+                    // Grab live data fields safely
+                    const online = attr.players;
                     const max = attr.maxPlayers ?? 100;
                     const fps = attr.details?.rust_fps ?? 260;
                     
-                    document.getElementById('playerCount').textContent = `${online} / ${max}`;
+                    // ONLY update the screen if Battlemetrics actually sent a valid player count number
+                    if (online !== undefined && online !== null) {
+                        document.getElementById('playerCount').textContent = `${online} / ${max}`;
+                    }
                     document.getElementById('fpsText').textContent = `${fps} FPS`;
                 }
             } catch (e) {
-                console.log("Stats fetch error, retrying...", e);
+                console.log("Battlemetrics sync delayed. Keeping current count until next check.", e);
             }
         }
 
