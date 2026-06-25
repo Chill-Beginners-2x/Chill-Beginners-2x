@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- HIGH INTENSITY GOOGLE SEO INDEX BOOSTER -->
     <title>[SEA/PH] Chill Beginners 2x | High Performance Rust Server | Quad Max 4</title>
     <meta name="description" content="Play on [SEA/PH] Chill Beginners 2x, the best high-performance Southeast Asia & Philippines Rust Server. Low latency, 2x vanilla scaled gameplay with strict Quad limits, weekly Friday wipes, and active admins.">
     <meta name="keywords" content="sea ph rust server, chill beginners 2x, rust server philippines, rust sea server, quad rust server, 2x rust server, low ping rust asia, best ph rust server, rust game server sea">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Chill Beginners Team">
     
-    <!-- Open Graph for Discord/Social Previews -->
     <meta property="og:title" content="[SEA/PH] Chill Beginners 2x | Premier Asian Rust Server">
     <meta property="og:description" content="Host location optimized for lowest latency in Southeast Asia and Philippines. 2x balance, 100% fair play, weekly Friday wipes at 6:00 PM IST.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://placehold.co/1200x630/030303/00E5FF?text=CHILL+BEGINNERS+2X">
     
-    <!-- Google Rich Snippets / JSON-LD GameServer Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,15 +29,12 @@
     }
     </script>
 
-    <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- React & Babel CDN for in-browser JSX compilation -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght=300;400;500;700&family=Outfit:wght=300;400;600;800&family=Unbounded:wght=400;700;900&display=swap" rel="stylesheet">
@@ -80,15 +74,6 @@
         .neon-glow-cyan { box-shadow: 0 0 15px rgba(6, 182, 212, 0.25); }
         .text-shadow-cyan { text-shadow: 0 0 10px rgba(6, 182, 212, 0.6); }
 
-        @keyframes radar-sweep {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .radar-sweep-line {
-            transform-origin: center;
-            animation: radar-sweep 5s linear infinite;
-        }
-
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 3px; }
@@ -99,7 +84,169 @@
 
     <div id="root"></div>
 
-    <!-- Links Externalized React Logic Script Securely -->
-    <script type="text/babel" src="app.js"></script>
+    <script type="text/babel">
+        const Icons = {
+            Lightning: () => (
+                <svg className="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            ),
+            Copy: () => (
+                <svg className="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                </svg>
+            ),
+            Check: () => (
+                <svg className="w-5 h-5 mr-2 inline text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                </svg>
+            ),
+            Discord: () => (
+                <svg className="w-5 h-5 mr-2 inline" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.094 13.094 0 0 1-1.873-.894.077.077 0 0 1-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 0 1 .077-.011c3.92 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.12.099.246.195.373.289a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/>
+                </svg>
+            ),
+            Map: () => (
+                <svg className="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+            )
+        };
+
+        function App() {
+            const serverId = "39073659"; 
+            const serverIp = "107.155.95.122:30041";
+            const discordLink = "https://discord.gg/uCCTy8AWWc";
+            const battlemetricsLink = `https://www.battlemetrics.com/servers/rust/${serverId}`;
+
+            const [copied, setCopied] = React.useState(false);
+            const [apiStatus, setApiStatus] = React.useState('loading');
+
+            const [serverData, setServerData] = React.useState({
+                name: "[SEA/PH] Chill Beginners 2x",
+                playersOnline: 0,
+                maxPlayers: 100,
+                fps: 260,
+                timeLeftStr: "0d 0h 0m 0s"
+            });
+
+            const [expandedRule, setExpandedRule] = React.useState(null);
+
+            React.useEffect(() => {
+                const timer = setInterval(() => {
+                    const now = new Date();
+                    const target = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 12, 30, 0, 0));
+                    let daysUntilFriday = (5 - now.getUTCDay() + 7) % 7;
+                    if (daysUntilFriday === 0 && now.getTime() >= target.getTime()) daysUntilFriday = 7;
+                    target.setUTCDate(target.getUTCDate() + daysUntilFriday);
+                    
+                    const diff = target.getTime() - now.getTime();
+                    if (diff <= 0) {
+                        setServerData(p => ({ ...p, timeLeftStr: "0d 0h 0m 0s" }));
+                    } else {
+                        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                        const s = Math.floor((diff % (1000 * 60)) / 1000);
+                        setServerData(p => ({ ...p, timeLeftStr: `${d}d ${h}h ${m}m ${s}s` }));
+                    }
+                }, 1000);
+                return () => clearInterval(timer);
+            }, []);
+
+            React.useEffect(() => {
+                const fetchServerInfo = async () => {
+                    try {
+                        const res = await fetch(`https://api.battlemetrics.com/servers/${serverId}`);
+                        if (res.ok) {
+                            const json = await res.json();
+                            const attr = json.data?.attributes || {};
+                            setServerData(p => ({
+                                ...p,
+                                playersOnline: attr.players ?? 0,
+                                maxPlayers: attr.maxPlayers ?? 100,
+                                fps: attr.details?.rust_fps ?? 260
+                            }));
+                            setApiStatus('success');
+                        }
+                    } catch (e) { setApiStatus('error'); }
+                };
+                fetchServerInfo();
+            }, []);
+
+            const handleCopyIP = () => {
+                navigator.clipboard.writeText(serverIp);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2500);
+            };
+
+            const rules = [
+                { title: "Beginner Friendly Environment", icon: "🌲", details: "2x Gather boost to keep progression fun." },
+                { title: "Team Limits (Max 4)", icon: "👥", details: "Strict Quad rules. No cross-teaming allowed." },
+                { title: "Anti-Cheat Systems", icon: "🛡️", details: "Automated diagnostics running clean blocking algorithms." },
+                { title: "Non-Toxic Conduct", icon: "💬", details: "Zero tolerance for toxic behaviors or slurs." }
+            ];
+
+            return (
+                <div className="min-h-screen bg-[#030303] relative scanlines text-gray-100">
+                    <div className="absolute inset-0 cyber-grid pointer-events-none"></div>
+                    <header className="sticky top-0 z-40 backdrop-blur-md bg-[#030303]/90 border-b border-cyan-950 px-4">
+                        <div className="max-w-7xl mx-auto flex items-center justify-between h-20">
+                            <span className="font-unbounded text-xl font-black text-white tracking-widest text-shadow-cyan">CHILL 2X</span>
+                            <a href={discordLink} target="_blank" rel="noreferrer" className="inline-flex items-center px-5 py-2 border border-cyan-900 bg-cyan-950/30 text-white text-xs uppercase hover:bg-cyan-400 hover:text-black transition-all">
+                                <Icons.Discord /> Discord
+                            </a>
+                        </div>
+                    </header>
+
+                    <main className="max-w-7xl mx-auto px-4 py-12 space-y-12">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                            <div className="lg:col-span-7 space-y-6">
+                                <h1 className="font-unbounded text-5xl sm:text-6xl font-black uppercase text-white">Chill Beginners <span className="text-cyan-400">2X GATHER</span></h1>
+                                <div className="flex flex-wrap gap-4">
+                                    <a href={`steam://connect/${serverIp}`} className="px-6 py-3 bg-cyan-400 text-black font-extrabold uppercase text-xs hover:bg-cyan-300 transition-all"><Icons.Lightning /> Join Server</a>
+                                    <button onClick={handleCopyIP} className="px-6 py-3 bg-zinc-950 border border-cyan-950 text-cyan-400 font-bold uppercase text-xs hover:border-cyan-400 transition-all">{copied ? "Copied!" : "Copy IP"}</button>
+                                </div>
+                            </div>
+                            <div className="lg:col-span-5 space-y-4">
+                                <div className="bg-black/60 p-6 border border-zinc-900">
+                                    <div className="text-gray-500 text-[10px] uppercase">Players Online</div>
+                                    <div className="font-unbounded text-4xl font-black">{serverData.playersOnline}/{serverData.maxPlayers}</div>
+                                </div>
+                                <div className="bg-black/60 p-6 border border-zinc-900">
+                                    <div className="text-gray-500 text-[10px] uppercase">Connection IP</div>
+                                    <div className="text-cyan-400 font-mono-jb text-sm break-all">{serverIp}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-cyan-950/20 to-black/90 border border-cyan-400/30 p-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                            <h3 className="text-lg font-black uppercase font-unbounded">Live Map Coordinates</h3>
+                            <a href={battlemetricsLink} target="_blank" rel="noreferrer" className="px-6 py-3 border border-cyan-400 text-cyan-400 text-xs font-black uppercase hover:bg-cyan-400 hover:text-black transition-all"><Icons.Map /> View Map</a>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div className="bg-[#050505] p-6 border border-zinc-900"><div className="text-gray-500 text-[10px] uppercase">Performance</div><div className="text-xl font-bold">{serverData.fps} FPS</div></div>
+                            <div className="bg-[#050505] p-6 border border-zinc-900"><div className="text-gray-500 text-[10px] uppercase">Group Limit</div><div className="text-xl font-bold text-cyan-400">QUAD (4)</div></div>
+                            <div className="bg-[#050505] p-6 border border-zinc-900"><div className="text-gray-500 text-[10px] uppercase">Next Wipe</div><div className="text-xl font-bold text-yellow-400 font-mono-jb">{serverData.timeLeftStr}</div></div>
+                        </div>
+
+                        <div className="space-y-4 max-w-3xl mx-auto">
+                            <h2 className="font-unbounded text-xl font-black text-center uppercase">Server Rules</h2>
+                            {rules.map((rule, idx) => (
+                                <div key={idx} onClick={() => setExpandedRule(expandedRule === idx ? null : idx)} className="bg-[#050505] p-4 border border-zinc-900 hover:border-cyan-950 cursor-pointer">
+                                    <div className="flex items-center gap-3"><span>{rule.icon}</span><h4 className="font-bold uppercase text-xs font-unbounded">{rule.title}</h4></div>
+                                    {expandedRule === idx && <p className="text-gray-400 text-xs mt-2 pt-2 border-t border-zinc-900">{rule.details}</p>}
+                                </div>
+                            ))}
+                        </div>
+                    </main>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
