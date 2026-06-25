@@ -86,13 +86,10 @@
                         </button>
                     </div>
                 </div>
-                
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="bg-black/80 border border-cyan-950 p-2 rounded-none shadow-2xl">
-                        <iframe src="https://www.battlemetrics.com/servers/rust/39073659/banner?theme=dark&foreground=%23F3F4F6&background=%23000000&lines=%230F172A&linkColor=%2322D3EE&currentPlayersColor=%2322D3EE" 
-                                class="w-full h-[96px] border-0 block" 
-                                scrolling="no">
-                        </iframe>
+                    <div class="bg-black/60 p-6 border border-zinc-900/80">
+                        <div class="text-gray-500 text-[10px] uppercase">Players Online</div>
+                        <div id="playerCount" class="font-unbounded text-4xl font-black">-- / 100</div>
                     </div>
                     <div class="bg-black/60 p-6 border border-zinc-900/80">
                         <div class="text-gray-500 text-[10px] uppercase">Connection IP</div>
@@ -109,7 +106,8 @@
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-[#050505] p-6 border border-zinc-900/60"><div class="text-gray-500 text-[10px] uppercase">Performance</div><div id="fpsText" class="text-xl font-bold">260 FPS</div></div>
                 <div class="bg-[#050505] p-6 border border-zinc-900/60"><div class="text-gray-500 text-[10px] uppercase">Group Limit</div><div class="text-xl font-bold text-cyan-400">QUAD (4)</div></div>
                 <div class="bg-[#050505] p-6 border border-zinc-900/60"><div class="text-gray-500 text-[10px] uppercase">Next Wipe Countdown</div><div id="countdown" class="text-xl font-bold text-yellow-400 font-mono-jb">Calculating...</div></div>
             </div>
@@ -250,6 +248,26 @@
         }
         setInterval(updateWipeCountdown, 1000);
         updateWipeCountdown();
+
+        // Safe Battlemetrics Data Fetch API
+        async function fetchServerStats() {
+            try {
+                const res = await fetch('https://api.battlemetrics.com/servers/39073659');
+                if (res.ok) {
+                    const json = await res.json();
+                    const attr = json.data?.attributes || {};
+                    const online = attr.players ?? 0;
+                    const max = attr.maxPlayers ?? 100;
+                    const fps = attr.details?.rust_fps ?? 260;
+                    
+                    document.getElementById('playerCount').textContent = `${online} / ${max}`;
+                    document.getElementById('fpsText').textContent = `${fps} FPS`;
+                }
+            } catch (e) {
+                document.getElementById('playerCount').textContent = "0 / 100";
+            }
+        }
+        fetchServerStats();
     </script>
 </body>
 </html>
