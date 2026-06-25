@@ -10,8 +10,10 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Chill Beginners Team">
     
+    <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght=300;400;500;700&family=Outfit:wght=300;400;600;800&family=Unbounded:wght=400;700;900&display=swap" rel="stylesheet">
@@ -62,6 +64,7 @@
     <div class="min-h-screen bg-[#030303] relative scanlines text-gray-100">
         <div class="absolute inset-0 cyber-grid pointer-events-none"></div>
         
+        <!-- Navigation Header -->
         <header class="sticky top-0 z-40 backdrop-blur-md bg-[#030303]/90 border-b border-cyan-950 px-4">
             <div class="max-w-7xl mx-auto flex items-center justify-between h-20">
                 <span class="font-unbounded text-xl font-black text-white tracking-widest text-shadow-cyan">CHILL 2X</span>
@@ -72,6 +75,7 @@
             </div>
         </header>
 
+        <!-- Main Content Grid -->
         <main class="max-w-7xl mx-auto px-4 py-12 space-y-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-6">
@@ -98,6 +102,7 @@
                 </div>
             </div>
 
+            <!-- Map Section -->
             <div class="bg-gradient-to-r from-cyan-950/20 to-black/90 border border-cyan-400/30 p-6 flex flex-col md:flex-row justify-between items-center gap-4">
                 <h3 class="text-lg font-black uppercase font-unbounded">Live Map Coordinates</h3>
                 <a href="https://www.battlemetrics.com/servers/rust/39073659" target="_blank" rel="noreferrer" class="px-6 py-3 border border-cyan-400 text-cyan-400 text-xs font-black uppercase hover:bg-cyan-400 hover:text-black transition-all">
@@ -106,12 +111,14 @@
                 </a>
             </div>
 
+            <!-- Stat Row -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div class="bg-[#050505] p-6 border border-zinc-900/60"><div class="text-gray-500 text-[10px] uppercase">Performance</div><div id="fpsText" class="text-xl font-bold">260 FPS</div></div>
                 <div class="bg-[#050505] p-6 border border-zinc-900/60"><div class="text-gray-500 text-[10px] uppercase">Group Limit</div><div class="text-xl font-bold text-cyan-400">QUAD (4)</div></div>
                 <div class="bg-[#050505] p-6 border border-zinc-900/60"><div class="text-gray-500 text-[10px] uppercase">Next Wipe Countdown</div><div id="countdown" class="text-xl font-bold text-yellow-400 font-mono-jb">Calculating...</div></div>
             </div>
 
+            <!-- NEW VIP SHOP AND PERKS SECTION -->
             <section class="border border-yellow-500/30 bg-gradient-to-b from-yellow-950/10 to-transparent p-8 rounded-none space-y-6">
                 <div class="text-center space-y-2">
                     <span class="px-3 py-1 bg-yellow-500/10 border border-yellow-500/40 text-yellow-400 font-mono-jb text-[10px] uppercase tracking-widest font-bold">Premium Tier</span>
@@ -120,6 +127,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                    <!-- Perk 1: Kits -->
                     <div class="bg-zinc-950/80 p-6 border border-zinc-900 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex items-center gap-3">
@@ -137,6 +145,7 @@
                         </div>
                     </div>
 
+                    <!-- Perk 2: Economy -->
                     <div class="bg-zinc-950/80 p-6 border border-zinc-900 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex items-center gap-3">
@@ -148,6 +157,7 @@
                         </div>
                     </div>
 
+                    <!-- Perk 3: Chat Perks -->
                     <div class="bg-zinc-950/80 p-6 border border-zinc-900 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex items-center gap-3">
@@ -172,6 +182,7 @@
                     </div>
                 </div>
 
+                <!-- Call to Action Banner -->
                 <div class="bg-black/40 border border-zinc-900 p-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
                     <div>
                         <h4 class="font-bold text-xs uppercase text-white tracking-wide">Ready to claim your rank?</h4>
@@ -183,6 +194,7 @@
                 </div>
             </section>
 
+            <!-- Interactive Server Rules -->
             <div class="space-y-4 max-w-3xl mx-auto">
                 <h2 class="font-unbounded text-xl font-black text-center uppercase">Server Rules</h2>
                 
@@ -209,6 +221,7 @@
         </main>
     </div>
 
+    <!-- Ultra-reliable, Zero-Dependency Script with Auto-Sync Fixed -->
     <script>
         const serverIp = "107.155.95.122:30041";
 
@@ -249,10 +262,11 @@
         setInterval(updateWipeCountdown, 1000);
         updateWipeCountdown();
 
-        // Safe Battlemetrics Data Fetch API
+        // Safe Battlemetrics Data Fetch API (With Anti-Cache & Auto-Refresh Fixed)
         async function fetchServerStats() {
             try {
-                const res = await fetch('https://api.battlemetrics.com/servers/39073659');
+                // Adding a unique timestamp query parameter forces the browser to get fresh data bypassing cache
+                const res = await fetch('https://api.battlemetrics.com/servers/39073659?t=' + new Date().getTime());
                 if (res.ok) {
                     const json = await res.json();
                     const attr = json.data?.attributes || {};
@@ -264,10 +278,15 @@
                     document.getElementById('fpsText').textContent = `${fps} FPS`;
                 }
             } catch (e) {
-                document.getElementById('playerCount').textContent = "0 / 100";
+                console.log("Stats fetch error, retrying...", e);
             }
         }
+
+        // Run immediately when page loads
         fetchServerStats();
+
+        // Automatically sync and refresh the player count every 60 seconds completely live
+        setInterval(fetchServerStats, 60000);
     </script>
 </body>
 </html>
